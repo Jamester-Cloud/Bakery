@@ -1,0 +1,111 @@
+<div class="content mt-5  p-3">
+    <div class="card">
+         <!-- Inicio del class="card-header" -->
+          <div class="card-header">
+            <h4 class="card-title">Articulos</h4>
+          </div>
+    <!-- Inicio del class="card card-nav-tabs card-plain" -->
+          <div class="card card-nav-tabs card-plain">
+            <!-- Inicio del class="card-header card-header-danger" -->
+            <div class="card-header card-header-danger">
+              <!-- Inicio del class="nav-tabs-navigation text-left" -->
+              <div class="nav-tabs-navigation text-left">
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+                <div class="nav-tabs-wrapper">
+                  <!-- Inicio del class="nav nav-tabs" -->
+                  <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                      <a class="nav-link  active text-info" href="#inicio" data-toggle="tab">  
+                        Articulos
+                      </a>
+                    </li>                              
+                    <li class="nav-item">
+                      <a class="nav-link text-success" href="#agregar" data-toggle="tab">
+                        Nuevo Articulo
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- Inicio del class="nav nav-tabs" -->
+                </div>
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+              </div>
+              <!-- Fin del class="nav-tabs-navigation text-left" -->
+            </div>  
+            <!-- Fin del class="card-header card-header-danger" -->          
+          </div>
+          <!-- Fin del class="card card-nav-tabs card-plain" -->
+
+          <!---Inicio del card-body-->
+          <div class="card-body">
+              <div class="tab-content text-left">
+                  <div class="tab-pane active" id="inicio">
+                      <div class="toolbar">
+                          <!--Aca se agregara acciones a los productos-->
+                      </div>
+
+                      <div class="table-responsive">
+                          <table id="producto" class="table table-striped" cellspacing="0" width="100%" style="text-align: center;">
+                              <thead>
+                                  <tr>
+                                      <th colspan="1">Articulo</th>
+                                      <th colspan="1">Precio</th>
+                                      <th colspan="1">Categoria</th>
+                                      <th colspan="1">Actualizado</th>
+                                      <th colspan="1">Existencias</th>
+                                      <th></th>
+                                      <th></th> 
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {{#each articulos}}
+                                  <tr>
+                                      <td>{{nombre}}</td>
+                                      <td>{{precio}}</td>
+                                      <td>{{categoria}}</td>
+                                      <td>{{timeago fechaIngreso}}</td>
+                                      <td>{{stock}}</td>
+                                      <td ><a href="/articulo/modificar/{{idArticulo}}"><i class="fa fa-pencil-alt text-info"></i></a></td>
+                                      <td><a href="/articulo/borrar/{{idArticulo}}"><i class="fa fa-ban text-danger"></i></a></td>                         
+                                  </tr>
+                                  {{/each}}
+                              </tbody>
+                          </table>
+                        </div>
+                     </div>
+                     <!--Fin del primer tabPane --->
+                     <!--incio del segundo tabPane --->
+                     <div class="tab-pane" id="agregar">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 mx-auto">
+                               <h5 class="mb-5">Agregar articulos</h5>
+                               <form action="/articulo/add" id="articulo" method="post">
+                                <div class="form-row">
+                                  <div class="form-group col-md-6">
+                                     <input type="text" class="form-control campoObligatorio" name="nombre" placeholder="Ingrese el nombre del articulo">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                     <input type="text" maxlength="12" class="form-control campoObligatorio soloNumerosEnteros" name="precio" id="precio" placeholder="Ingrese el precio del articulo">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                     <input type="text" maxlength="12" class="form-control campoObligatorio soloNumerosEnteros" name="stock" id="stock" placeholder="Ingrese Existencias">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <select name="idCategoria" id="" class="form-control campoObligatorio">
+                                      <option value="">Ingrese una categoria  </option>
+                                      {{#each category}}
+                                      <option value="{{idCategoria}}">{{categoria}}</option>
+                                      {{/each}}
+                                    </select>
+                                  </div>
+                                  <input type="submit" class="btn btn-success btn-block mt-5" value="Agregar">
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                  </div>
+              </div>
+              <!---Fin del card-body-->
+          </div>
+          
+    </div>

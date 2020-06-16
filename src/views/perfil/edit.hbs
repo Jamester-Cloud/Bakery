@@ -1,0 +1,15 @@
+  <div class="content mt-4 p-3  card">
+    <div class="row mt-5">
+        <div class="col-md-6 mt-5 p-5 mx-auto">
+            <div class="card-header text-center"><h5>Modificar perfil</h5></div>
+                <div class="card-body">
+                    <form action="/perfil/modificar/{{perfil.idPerfil}}" id="perfilForm" method="post">
+                        <div class="form-group">
+                            <input type="text" value="{{perfil.perfil}}" class="form-control campoObligatorio" name="perfil" placeholder="Ingrese el nombre del cliente">
+                        </div>
+                        <input type="submit"  class="btn btn-success btn-block" value="Modificar" >
+                    </form>
+                </div>      
+        </div>
+    </div>
+</div>

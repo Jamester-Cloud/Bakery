@@ -1,0 +1,87 @@
+<div class="content mt-5 p-3">
+    <div class="card">
+         <!-- Inicio del class="card-header" -->
+          <div class="card-header">
+            <h4 class="card-title">Clientes</h4>
+          </div>
+    <!-- Inicio del class="card card-nav-tabs card-plain" -->
+          <div class="card card-nav-tabs card-plain">
+            <!-- Inicio del class="card-header card-header-danger" -->
+            <div class="card-header card-header-danger">
+              <!-- Inicio del class="nav-tabs-navigation text-left" -->
+              <div class="nav-tabs-navigation text-left">
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+                <div class="nav-tabs-wrapper">
+                  <!-- Inicio del class="nav nav-tabs" -->
+                  <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                      <a class="nav-link  active text-info" href="#inicio" data-toggle="tab">  
+                        Ver Usuarios Registrados
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link  text-info" href="#conectados" data-toggle="tab">  
+                        Usuarios Conectados
+                      </a>
+                    </li>                               
+                  </ul>
+                  <!-- Inicio del class="nav nav-tabs" -->
+                </div>
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+              </div>
+              <!-- Fin del class="nav-tabs-navigation text-left" -->
+            </div>  
+            <!-- Fin del class="card-header card-header-danger" -->          
+          </div>
+          <!-- Fin del class="card card-nav-tabs card-plain" -->
+
+          <!---Inicio del card-body-->
+          <div class="card-body">
+              <div class="tab-content text-left">
+                  <div class="tab-pane active" id="inicio">
+                      <div class="toolbar">
+                          <!--Aca se agregara acciones a los Usuarios-->
+                      </div>
+
+                      <div class="table-responsive">
+                          <table id="producto" class="table table-striped" cellspacing="0" width="100%" style="text-align: center;">
+                              <thead>
+                                  <tr>
+                                      <th>Usuario</th>
+                                      <th colspan="1">Nombre</th>
+                                      <th colspan="1">Apellido</th>
+                                      <th colspan="1">Correo electronico</th>
+                                      <th>Perfil en el sistema</th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {{#each usuario}}
+                                  <tr>
+                                      <td>{{username}}</td>
+                                      <td>{{nombrePersona}}</td>
+                                      <td>{{apellidoPersona}}</td>
+                                      <td>{{correoPersona}}</td>
+                                      <td>{{perfil}}</td>
+                                      <td><a href="/usuario/borrar/{{idUsuario}}"><i class="fa fa-ban text-danger"></i></a></td>                                    
+                                  </tr>
+                                  {{/each}}
+                              </tbody>
+                          </table>
+                        </div>
+                     </div>
+                     <div class="tab-pane" id="conectados">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                               <h5 class="mb-5">En desarrollo...</h5>
+                            
+                            </div>
+                        </div>
+                     </div>
+                     <!--Fin del primer tabPane --->
+                  </div>
+              </div>
+              <!---Fin del card-body-->
+          </div>
+          
+    </div>

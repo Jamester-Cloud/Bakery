@@ -1,0 +1,50 @@
+<div class="container p-5 mt-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <div class="card text-center">
+                    <div class="card-header">
+                        <h3>Registro de usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="/signup" id="usuarios" method="post">
+                            <h4>Informacion basica de contacto:</h4>
+                            <div class="form-group">
+                                <input type="text" class="form-control campoObligatorio" name="nombrePersona" placeholder="Ingrese su nombre" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control campoObligatorio" name="apellidoPersona" placeholder="Ingrese su apellido" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control campoObligatorio correoElectronico" name="correoPersona" placeholder="Ingrese su correo electronico" autofocus>
+                            </div>
+                            <hr>
+                            <h4>Registro del usuario:</h4>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input type="text" class="form-control campoObligatorio" name="username" placeholder="Nombre de usuario" autofocus>
+                                    <hr>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <input type="password" minlength="8" class="form-control campoObligatorio" id="pass" name="pass" placeholder="Contraseña" autofocus>
+                                </div>
+                                <div class="form-group col-md-7 text-right">
+                                   
+                                    <h6>La contraseña debe estar formada por:</h6>
+                                    <p id="letter"  class="text-danger"> Al menos una Letra<b> Miniscula</b></p>
+                                    <p id="capital" class="text-danger"> Al menos una Letra<b> Mayuscula</b></p>
+                                    <p id="number"  class="text-danger"><b>Un numero</b></p>
+                                    <p id="length"  class="text-danger">Longitud minima de <b>8 caracteres</b></p>
+                                    <p id="simbol"  class="text-danger">Al menos un<b> simbolo(.:;¡!#&¿?=$/*%@()+-)</b></p>
+                                </div>
+                                <div class="form-group col-md-12 mt-5">
+                                    <button class="btn btn-success ">
+                                        Registrarse
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

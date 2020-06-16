@@ -1,0 +1,89 @@
+<div class="content mt-5 p-3">
+    <div class="card">
+         <!-- Inicio del class="card-header" -->
+          <div class="card-header">
+            <h4 class="card-title">Perfiles</h4>
+          </div>
+    <!-- Inicio del class="card card-nav-tabs card-plain" -->
+          <div class="card card-nav-tabs card-plain">
+            <!-- Inicio del class="card-header card-header-danger" -->
+            <div class="card-header card-header-danger">
+              <!-- Inicio del class="nav-tabs-navigation text-left" -->
+              <div class="nav-tabs-navigation text-left">
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+                <div class="nav-tabs-wrapper">
+                  <!-- Inicio del class="nav nav-tabs" -->
+                  <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                      <a class="nav-link  active text-info" href="#inicio" data-toggle="tab">  
+                        Ver Perfiles
+                      </a>
+                    </li> 
+                    <li class="nav-item">
+                      <a class="nav-link  text-success" href="#agregar" data-toggle="tab">  
+                        Agregar Perfiles
+                      </a>
+                    </li>                              
+                  </ul>
+                  <!-- Inicio del class="nav nav-tabs" -->
+                </div>
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+              </div>
+              <!-- Fin del class="nav-tabs-navigation text-left" -->
+            </div>  
+            <!-- Fin del class="card-header card-header-danger" -->          
+          </div>
+          <!-- Fin del class="card card-nav-tabs card-plain" -->
+
+          <!---Inicio del card-body-->
+          <div class="card-body">
+              <div class="tab-content text-left">
+                  <div class="tab-pane active" id="inicio">
+                      <div class="toolbar">
+                          <!--Aca se agregara acciones a los clientes-->
+                      </div>
+
+                      <div class="table-responsive">
+                          <table id="producto" class="table table-striped" cellspacing="0" width="100%" style="text-align: center;">
+                              <thead>
+                                  <tr>
+                                      <th colspan="1">ID</th>
+                                      <th colspan="1">Perfil</th>                                      
+                                      <th></th>
+                                      <th></th> 
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  {{#each perfiles}}
+                                  <tr>
+                                      <td>{{idPerfil}}</td>
+                                      <td>{{perfil}}</td>
+                                      <td ><a href="/perfil/modificar/{{idPerfil}}"><i class="fa fa-pencil-alt text-info"></i></a></td>
+                                      <td><a href="/perfil/borrar/{{idPerfil}}"><i class="fa fa-ban text-danger"></i></a></td>                                    
+                                  </tr>
+                                  {{/each}}
+                              </tbody>
+                          </table>
+                        </div>
+                     </div>
+                     <!--Fin del primer tabPane --->
+                     <!--incio del segundo tabPane --->
+                     <div class="tab-pane" id="agregar">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 mx-auto">
+                               <h5 class="mb-5">Agregar Perfiles</h5>
+                               <form action="/perfil/add" id="perfilForm" method="post">
+                                  <div class="form-group">
+                                     <input type="text" class="form-control campoObligatorio" name="perfil" placeholder="Ingrese el nombre del nuevo perfil">
+                                  </div>
+                                  <input type="submit" class="btn btn-success btn-block mt-5" value="Agregar">
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+                  </div>
+              </div>
+              <!---Fin del card-body-->
+          </div>
+          
+    </div>

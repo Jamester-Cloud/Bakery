@@ -1,0 +1,47 @@
+{{#if art.idArticulo}}
+<div class="content mt-5 p-5 card">
+	<div class="row">
+		<div class="col-md-4 p-4">
+			<img src="/img/icons/product.png">
+			<hr>
+			<form action="/pedidos/agregarCarro" method="post">
+				<input type="hidden" value="{{users.idCliente}}" name="idCliente">
+				<input type="hidden" value="{{art.idArticulo}}" name="idArticulo">
+				<h6>{{art.stock}}-Disponibles</h6>
+				<label for="rangeInput">Cantidad a comprar</label>
+				<input type="range" name="rangeInput" class="form-control-range" value="1" in="0" max="{{art.stock}}" onchange="updateTextInput(this.value);">
+				<input type="text" id="textInput" id="cantidad" name="cantidad" value="1" class="form-control" readonly="true">
+				<hr>
+				<input type="submit" value="Agregar al Carrito" class="btn btn-round btn-info">
+			</form>
+
+		</div>
+		<div class="col-md-6 mt-1">
+		
+			<h5>Nombre: {{art.nombre}} </h5>
+			<hr>
+			<h5>Categoria: {{art.categoria}}</h5>
+			<hr>
+			<h5>Precio: {{art.precio}}</h5>
+			<hr>
+			<h5>Fecha Ingreso: {{timeago art.fechaIngreso}}</h5>
+			<hr>
+			
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function updateTextInput(val) { // Haciendo visible el valor
+        document.getElementById('textInput').value=val;
+    }		
+</script>
+{{else}}
+<div class="content mt-5 p-5 card">
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>No has seleccionado nada.</h3>
+			<a href="/profile" class="btn btn-round btn-info">Regresar ahora</a>
+		</div>
+	</div>
+</div>
+{{/if}}

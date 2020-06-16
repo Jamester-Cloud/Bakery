@@ -1,0 +1,16 @@
+  <div class="content mt-4 p-5 card">
+    <div class="row mt-5">
+        <div class="col-md-12 mt-5 mx-auto">
+                <div class="card-header text-center"><h5>Modificar Categoria</h5></div>
+                <div class="card-body">
+                    <form action="/categoria/modificar/{{categoria.idCategoria}}" id="categoryForm" method="post">
+                        <div class="form-group">
+                            <input type="text" value="{{categoria.categoria}}" class="form-control campoObligatorio" name="categoria" placeholder="Categoria">
+                        </div>
+                       
+                        <input type="submit"  class="btn btn-success btn-block" value="Modificar" >
+                    </form>
+            </div>      
+        </div>
+    </div>
+</div>

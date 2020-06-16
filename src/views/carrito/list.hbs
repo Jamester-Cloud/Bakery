@@ -1,0 +1,113 @@
+{{#if listArt}}
+    <div class="content mt-5 p-3">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-info">Carro de compras</h4>
+            </div>
+               <!-- Inicio del class="card card-nav-tabs card-plain" -->
+          <div class="card card-nav-tabs card-plain">
+            <!-- Inicio del class="card-header card-header-danger" -->
+            <div class="card-header card-header-danger">
+              <!-- Inicio del class="nav-tabs-navigation text-left" -->
+              <div class="nav-tabs-navigation text-left">
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+                <div class="nav-tabs-wrapper">
+                  <!-- Inicio del class="nav nav-tabs" -->
+                  <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                      <a class="nav-link  active text-info" href="#inicio" data-toggle="tab">  
+                        Carrito de compras <i class="fa fa-shopping-cart"></i>
+                      </a>
+                    </li>                              
+                    <li class="nav-item">
+                      <a class="nav-link text-success" href="#pedido" data-toggle="tab">
+                        Ir a Caja <i class="fa fa-dollar-sign"></i>
+                      </a>
+                    </li>
+                  </ul>
+                  <!-- Inicio del class="nav nav-tabs" -->
+                </div>
+                <!-- Inicio del class="nav-tabs-wrapper" -->
+              </div>
+              <!-- Fin del class="nav-tabs-navigation text-left" -->
+            </div>  
+            <!-- Fin del class="card-header card-header-danger" -->          
+          </div>
+          <!-- Fin del class="card card-nav-tabs card-plain" -->
+          <div class="card-body">
+              <div class="tab-content text-left">
+                  <div class="tab-pane active" id="inicio">
+                      <div class="toolbar">
+                          <!--Aca se agregara acciones a los productos-->
+                      </div>
+                      <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <img src="/img/icons/cart.png" width="200">
+                        </div>
+                        <div class="col sm-3">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover" id="producto">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nombre</th>                                      
+                                            <th>Categoria</th>
+                                            <th>Precio</th> 
+                                            <th>Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each listArt}}
+                                        <tr>
+                                            <th>{{idListaArticulos}}</th>
+                                            <th>{{nombre}}</th>
+                                            <th>{{categoria}}</th>
+                                            <th>{{precio}}</th>
+                                            <th>{{cantidad}}</th>
+                                        </tr>
+                                       
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  <!--Inicio del tab-pane Pedido-->
+                  <div class="tab-pane" id="pedido">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 mx-auto">
+                               <h5 class="mb-5">Caja:</h5>
+                               <h5>Total a pagar: {{totalPay}}</h5>
+                               <form action="/pedidos/cashout" method="post">
+                                  <input type="hidden" name="idCliente" value="{{users.idCliente}}">
+                                  <div class="form-group">
+                                      <label for="descripcion">Descripcion del pedido</label>
+                                      <input type="text" class="form-control" name="descripcion" placeholder="Describa el pedido-Ej: direccion de envio,calle,telefono">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="fechaEntrega">Fecha de entrega</label>
+                                     <input type="date" class="form-control" name="fechaEntrega" id="fechaEntrega" placeholder="Ingrese la fecha de entrega">
+                                  </div>
+                                  <input type="submit" class="btn btn-success btn-block mt-5" value="Agregar">
+                                </form>
+                            </div>
+                        </div>
+                     </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+{{else}}
+<div class="content mt-5 p-5 card">
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>No tienes productos ahora mismo.</h3>
+			<a href="/profile" class="btn btn-round btn-info">Regresar al inicio</a>
+		</div>
+	</div>
+</div>
+{{/if}}
+

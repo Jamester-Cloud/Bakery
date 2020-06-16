@@ -1,0 +1,85 @@
+
+
+  <div class="sidebar" data-color="blue">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo">
+        <a href="#" class="simple-text logo-mini">
+          <script>
+           let nombreUsuario = "{{users.username}}";
+           let inicial = nombreUsuario.charAt(0);
+           document.write(inicial);
+          </script>
+        </a>
+        <a href="#" class="simple-text logo-normal">
+          {{users.username}}
+        </a>
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+          <li class="">
+            <a href="/profile">
+              <i class="now-ui-icons business_chart-bar-32"></i>
+              <p>Inicio</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="/usuarios">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Usuarios</p>
+            </a>
+          </li>
+          <li >
+            <a href="/pedidos">
+              <i class="now-ui-icons shopping_shop"></i>
+              <p>Tienda Online</p>
+            </a>
+          </li>
+          <li>
+            <a href="/perfil">
+              <i class="now-ui-icons business_badge"></i>
+              <p>Perfiles</p>
+            </a>
+          </li>
+          <li>
+            <a href="/categoria">
+              <i class="now-ui-icons location_map-big"></i>
+              <p>Categorias</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="/articulo">
+              <i class="now-ui-icons design_app"></i>
+              <p>Articulos</p>
+            </a>
+          </li>
+          <li>
+            <a href="/clientes">
+              <i class="now-ui-icons users_circle-08"></i>
+              <p>Clientes</p>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      let perfil = "{{users.perfil}}";
+      let hideOptions = "d-none";
+      console.log(perfil);
+      listaCompleta = document.getElementsByTagName('li');
+      switch (perfil) {
+        case 'Cliente':
+         listaCompleta[1].className=hideOptions;
+         listaCompleta[3].className=hideOptions;
+         listaCompleta[4].className=hideOptions;
+         listaCompleta[5].className=hideOptions;
+         listaCompleta[6].className=hideOptions;
+          break;
+      }
+      
+  </script>
+
+

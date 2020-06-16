@@ -1,0 +1,32 @@
+  {{#if success}}
+            <script>
+              $(document).ready(()=>{
+                swal.fire({
+                  title:'{{success}}',
+                  width: 600,
+                  padding: '3em',
+                  type:'success',
+                  confirmButtonText:'Aceptar',
+                   backdrop: `
+                    rgba(0,0,123,0.4)
+                    url("/img/nyan-cat.gif")
+                    left top
+                    no-repeat
+                  `
+                })
+              })
+            </script>
+  {{/if}}
+
+   {{#if message}}
+            <script>
+              $(document).ready(()=>{
+                swal.fire({
+                  title:'{{message}}',
+                  type:'error',
+                  confirmButtonText:'Aceptar'
+                })
+              })
+            </script>
+  {{/if}}
+ 

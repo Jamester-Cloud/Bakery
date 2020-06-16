@@ -1,0 +1,102 @@
+<div class="container p-3">
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Clientes Actuales</h5>
+                <h4 class="card-title">Clientes</h4>
+                <hr>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-round btn-outline-default btn-info dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons users_circle-08"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3 class="text-success"> {{clientesActivos.clientesActivos}} <i class="fa fa-user-check"></i></h3>
+                    <h3 class="text-danger">{{clientesInactivos.clientesInactivos}} <i class="fa fa-user-minus"></i></h3>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="text-success"> Activos</h3>
+                    <h3 class="text-danger"> Inactivos</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Pedidos</h5>
+                <h4 class="card-title">Pedidos</h4>
+                <hr>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-primary btn-round btn-outline-default dropdown-toggle btn-simple btn-icon no-caret" data-toggle="dropdown">
+                    <i class="now-ui-icons shopping_shop"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h3 class="text-danger">  {{pedidosImcompletados.pedidosIncomplete}} <i class="fa fa-times"></i> </h3>
+                    <h3 class="text-success"> {{pedidosCompletados.pedidosComplete}} <i class="fa fa-clipboard-check"></i>  </h3>
+                  </div>
+                  <div class="col-md-6">
+                    <h3 class="text-danger">  Pendientes</h3>
+                    <h3 class="text-success">  Completados</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-category"> Lista de todos los productos en el sistema</h5>
+                <h4 class="card-title"> Productos <img width="100" src="/img/icons/product.png"> <img width="100" src="/img/icons/food.png"> <img width="100" src="/img/icons/laundry.png"></h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Nombre
+                      </th>
+                      <th>
+                        Categoria
+                      </th>
+                      <th>
+                        Precio
+                      </th>
+                      <th class="text-right">
+                        Ultima Actualizacion
+                      </th>
+                    </thead>
+                    <tbody>
+                        {{#each articulos}}
+                        <tr>
+                          <td>{{nombre}}</td>
+                          <td>{{categoria}}</td>
+                          <td>{{precio}}</td>
+                          <td class="text-right">{{timeago fechaIngreso}}</td>
+                         </tr>
+                        {{/each}}                 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

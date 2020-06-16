@@ -1,0 +1,29 @@
+  <div class="content mt-4 p-5 card">
+    <div class="row mt-5">
+        <div class="col-md-6 mt-5 mx-auto">
+                <div class="card-header text-center"><h5>Modificar articulo</h5></div>
+                <div class="card-body">
+                    <form action="/articulo/modificar/{{producto.idArticulo}}" id="articulo" method="post">
+                        <div class="form-group">
+                            <input type="text" value="{{producto.nombre}}" class="form-control campoObligatorio" name="nombre" placeholder="Ingrese el nombre del articulo">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="{{producto.precio}}" class="form-control campoObligatorio soloNumerosEnteros" name="precio" id="precio" placeholder="Ingrese el precio del articulo">
+                        </div>
+                        <div class="form-group">
+                                     <input type="text" maxlength="12" class="form-control campoObligatorio soloNumerosEnteros" value="{{producto.stock}}" name="stock" id="stock" placeholder="Ingrese el precio del articulo">
+                                  </div>
+                        <div class="form-group">
+                            <select name="idCategoria" class="form-control campoObligatorio">
+                                      
+                                      {{#each category}}
+                                      <option value="{{idCategoria}}">{{categoria}}</option>
+                                      {{/each}}
+                                    </select>
+                        </div>
+                        <input type="submit"  class="btn btn-success btn-block" value="Modificar" >
+                    </form>
+            </div>      
+        </div>
+    </div>
+</div>
